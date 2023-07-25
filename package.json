@@ -5,7 +5,8 @@
     "lint:fix": "eslint --fix . --ext .ts --fix --ignore-path .gitignore",
     "install:post": "npx playwright install",
     "test": "npx playwright test --project=e2e",
-    "report:serve": "npx playwright show-report artifacts/pw-report"
+    "report:playwright": "npx playwright show-report artifacts/pw-report",
+    "report:allure": "npx allure serve artifacts/allure"
   },
   "keywords": [],
   "author": "Olexander Popov (alex.popov.tech@gmail.com)",
