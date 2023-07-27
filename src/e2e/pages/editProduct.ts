@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { Toasts } from '@src/e2e/widgets/toasts';
 
 export const EditProduct = ({ page }: { page: Page }) => ({
   create: () => page.locator('button[type="submit"]:has-text("Create")').click(),
@@ -14,4 +15,5 @@ export const EditProduct = ({ page }: { page: Page }) => ({
       await container.locator('[name="REVISION"]').fill(args.revision);
     },
   },
+  toasts: Toasts({ page }),
 });

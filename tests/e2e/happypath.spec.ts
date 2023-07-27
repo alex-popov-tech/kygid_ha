@@ -27,12 +27,12 @@ test.describe(() => {
     await login.submit();
   });
 
-  test('should not create product with empty "Revision"', async ({ pause, app: { editProduct, products } }) => {
+  test('should not create product with wrong "Revision"', async ({ pause, app: { editProduct, products } }) => {
     await products.addItem(data.type);
 
-    await editProduct.productNewAttributes.set({ ...data, revision: '' });
+    await editProduct.productNewAttributes.set({ ...data, revision: 'Hello World !' });
     await editProduct.create();
-    await products.shouldBeOpened();
+    await editProduct.toasts.shouldBe("Invalid Value");
   });
 
   test('should create product', async ({ pause, app: { editProduct, products } }) => {
